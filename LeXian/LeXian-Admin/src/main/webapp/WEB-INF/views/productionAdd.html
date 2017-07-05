@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>添加商品</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/static/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>添加商品</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">选项1</a>
+                            </li>
+                            <li><a href="#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input type="hidden" id="hiddenbox" name="token">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">商品名：</label>
+                            <div class="col-sm-8">
+                                <input required id="proName" name="proname" class="form-control" type="text">
+                                <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 请根据规范填写</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">商品码：</label>
+                            <div class="col-sm-8">
+                                <input required id="proBar" name="probar" class="form-control" type="text" aria-required="true" aria-invalid="false" class="valid">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">商品价格</label>
+                            <div class="col-sm-8">
+                                <input required id="proPrice" name="proprice" class="form-control" type="number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">商品描述：</label>
+                            <div class="col-sm-8">
+                                <input required id="proDscp" name="prodscp" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">图片：上传图片链接</label>
+                            <div class="col-sm-8">
+                                <input required required id="proPic" name="promainpic" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">库存量：</label>
+                            <div class="col-sm-8">
+                                <input required id="proStorage" name="prostorage" class="form-control" type="number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">详细描述：</label>
+                            <input name="prodetaildscp" type="hidden" id="proDetailDscp">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="ibox float-e-margins">
+                                        <div class="ibox-title">
+                                            <h5>编辑/保存为html代码示例</h5>
+                                            <button id="edit" class="btn btn-primary btn-xs m-l-sm" onclick="editfull()" type="button">编辑</button>
+                                            <button id="save" class="btn btn-primary  btn-xs" onclick="savefull()" type="button">保存</button>
+                                            <div class="ibox-tools">
+                                                <a class="collapse-link">
+                                                    <i class="fa fa-chevron-up"></i>
+                                                </a>
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="form_editors.html#">
+                                                    <i class="fa fa-wrench"></i>
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-user">
+                                                    <li><a href="#">选项1</a>
+                                                    </li>
+                                                    <li><a href="#">选项2</a>
+                                                    </li>
+                                                </ul>
+                                                <a class="close-link">
+                                                    <i class="fa fa-times"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="ibox-content" id="eg">
+
+                                            <div class="click2edit wrapper">
+                                                <h3>你好 </h3>
+                                                <p>
+                                                    hAdmin是一个完全响应式，基于Bootstrap3.3.6最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术，她提供了诸多的强大的可以重新组合的UI组件，并集成了最新的jQuery版本(v2.1.1)，当然，也集成了很多功能强大，用途广泛的就jQuery插件，她可以用于所有的Web应用程序，如<b>网站管理后台</b>，<b>网站会员中心</b>，<b>CMS</b>，<b>CRM</b>，<b>OA</b>等等，当然，您也可以对她进行深度定制，以做出更强系统。
+                                                </p>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- 全局js -->
+<script src="/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="/static/js/content.js?v=1.0.0"></script>
+<script src="/static/js/app.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="/static/js/plugins/summernote/summernote.min.js"></script>
+<script src="/static/js/plugins/summernote/summernote-zh-CN.js"></script>
+
+<!-- jQuery Validation plugin javascript-->
+<script src="/static/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="/static/js/plugins/validate/messages_zh.min.js"></script>
+<script src="/static/js/plugins/layer/layer.min.js"></script>
+
+<script src="/static/js/demo/form-validate-demo.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#signupForm").validate();
+        $('.summernote').summernote({
+            lang: 'zh-CN',
+            heigth:400
+        });
+
+    });
+     function editfull() {
+        $("#eg").addClass("no-padding");
+        $('.click2edit').summernote({
+            lang: 'zh-CN',
+            focus: true
+        });
+    };
+    function savefull() {
+        $("#eg").removeClass("no-padding");
+        var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+        $('#proDetailDscp').val(aHTML);
+        $('.click2edit').destroy();
+    };
+
+    $(document).ready(function () {
+        $('#hiddenbox').val($.LeXian.getCookie("token"));
+        console.log($('#hiddenbox').val());
+    });
+
+    $("#signupForm").submit(function () {
+        var URL="/admin/production/add";
+        var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+        $('#proDetailDscp').val(aHTML);
+        var layerload = layer.load(2, {shade: false}); //0代表加载的风格，支持0-2
+//        alert($('#signupForm').serialize());
+        $.ajax({
+            url: URL,
+            type: "POST",
+            dataType: "json",
+            data: $('#signupForm').serialize(),
+            success:function (data) {
+                if(data.map.error==null){
+                    layer.close(layerload);
+                    alert("添加成功");
+                }else {
+                    layer.close(layerload);
+                    alert(data.map.error);
+                }
+            }
+        });
+        return false;
+    });
+
+</script>
+
+
+</body>
+
+</html>

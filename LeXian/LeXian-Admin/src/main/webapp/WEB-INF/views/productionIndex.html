@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - Bootstrap Table</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+</head>
+
+<body class="gray-bg">
+
+<div class="col-sm-12">
+    <!-- Example Checkbox Select -->
+    <div class="example-wrap">
+        <h3 class="example-title">商品详情</h3>
+        <div class="example">
+            <!--data-url="/static/js/demo/production_test.json" data-toggle="table"
+                   data-query-params="queryParams" data-mobile-responsive="true" data-height="400" data-pagination="true"
+                   data-icon-size="outline" data-search="true" data-striped="true"-->
+            <table id="exampleTablePagination">
+                <thead>
+                <!--<tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="proname">商品名称</th>
+                    <th data-field="proprice">价格</th>
+                    <th data-field="prodscp">商品描述</th>
+                    <th data-field="prostorage">商品库存</th>
+                    <th data-field="prodetailDscp">商品详细描述</th>
+                    <th data-field="probar">商品状态</th>
+                </tr>-->
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- End Example Checkbox Select -->
+</div>
+<button class="btn btn-danger">删除</button>
+<button class="btn btn-info">修改</button>
+<!-- 全局js -->
+<script src="/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="/static/js/content.js?v=1.0.0"></script>
+<script src="/static/js/app.js"></script>
+
+
+<!-- Bootstrap table -->
+<script src="/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!-- Peity -->
+<!--<script src="/static/js/demo/bootstrap-table-demo.js"></script>-->
+
+<script>
+    $(document).ready(function () {
+        var token = $.LeXian.getCookie("token");
+        console.log(token);
+        var $table = $('#exampleTablePagination');
+        /* $.ajax({
+         url: "/admin/production/query",
+         data: {"token": token},
+         type: "post",
+         dataType: "json",
+         success: function (data) {
+         var datalist = data.map.pageInfo.list;
+         console.log(datalist);
+         $table.bootstrapTable('destroy');
+         $table.bootstrapTable({
+         pagination: true, //分页
+         search: true, //显示搜索框
+         pageSize: 8,
+         /!*sidePagination: "server",*!/
+         striped: true,
+         columns: [{
+         checkbox: true
+         }, {
+         title: '商品名称',
+         field: 'proname'
+         }, {
+         title: '商品价格',
+         field: 'proprice'
+         }, {
+         title: '商品描述',
+         field: 'prodscp'
+         }, {
+         title: '商品库存',
+         field: 'prostorage'
+         }, {
+         title: '商品详细描述',
+         field: 'prodetailDscp'
+         }, {
+         title: '商品条码',
+         field: 'probar'
+         }],
+         data: datalist
+         });
+         }
+         });*/
+
+        $table.bootstrapTable('destroy');
+        $table.bootstrapTable({
+            method: 'get',
+            striped: true, //是否显示行间隔色
+            url: "/admin/production/query?token=" + token,
+            pagination: true, //分页
+            search: true, //显示搜索框
+            pageSize: 10,
+            sidePagination: "server",
+            columns: [{
+                checkbox: true
+            }, {
+                title: '商品名称',
+                field: "proname"
+            }, {
+                title: '商品价格',
+                field: 'proprice'
+            }, {
+                title: '商品描述',
+                field: 'prodscp'
+            }, {
+                title: '商品库存',
+                field: 'prostorage'
+            }, {
+                title: '商品详细描述',
+                field: 'prodetailDscp'
+            }, {
+                title: '商品条码',
+                field: 'probar'
+            }],
+            dataField: "data",
+            queryParamsType: '',
+            queryParams: queryParams,//请求服务器时所传的参数
+            pageList: [5, 10, 20, 30],//分页步进值
+            responseHandler: function (res) {
+                //在ajax获取到数据，渲染表格之前，修改数据源
+                if (res.map.pageInfo.total != 0) {
+                    return {
+                        total: res.map.pageInfo.total,
+                        data: res.map.pageInfo.list
+                        /* orderDatetime:getLocalTime(res.map.pageInfo.list.orderDatetime)*/
+                    };
+                }
+            }
+        });
+
+    });
+    //请求服务数据时所传参数
+    function queryParams(params) {
+        return {
+            //每页多少条数据
+            pageSize: params.limit, //每一页的数据行数，默认是上面设置的10(pageSize)
+            pn: params.pageNumber //当前页面,默认是上面设置的1(pageNumber)
+        }
+    }
+</script>
+
+</body>
+
+</html>

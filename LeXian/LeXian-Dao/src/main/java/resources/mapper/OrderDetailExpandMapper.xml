@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.OrderDetailExpandMapper">
+
+
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.OrderDetail">
+    <id column="OrderDetail_id" jdbcType="VARCHAR" property="orderdetailId" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="orderId" jdbcType="VARCHAR" property="orderid" />
+    <result column="OrderDetail_Production_id" jdbcType="VARCHAR" property="orderdetailProductionId" />
+    <result column="OrderDetail_Production_Price" jdbcType="REAL" property="orderdetailProductionPrice" />
+    <result column="OrderDetail_Production_Amount" jdbcType="INTEGER" property="orderdetailProductionAmount" />
+  </resultMap>
+
+
+  <select id="findOrderDetailByOrderId" parameterType="java.lang.String" resultType="cn.cqjtu.lexian.model.OrderDetail">
+    SELECT  OrderDetail_id,userId,orderId,OrderDetail_Production_id,OrderDetail_Production_Price,
+    OrderDetail_Production_Amount FROM orderDetail
+    WHERE orderId=#{orderId}
+  </select>
+
+</mapper>

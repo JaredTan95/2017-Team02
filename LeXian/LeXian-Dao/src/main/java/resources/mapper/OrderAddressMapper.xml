@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.OrderAddressMapper">
+
+    <select id="findOrderAddressByOrderId" parameterType="java.lang.String"
+            resultType="cn.cqjtu.lexian.model.OrderAddress">
+        SELECT  orderAddressrId,orderId,addressId form orderAddress
+    </select>
+
+
+    <insert id="addOrderAddress" parameterType="cn.cqjtu.lexian.model.OrderAddress">
+        INSERT INTO  orderAddress
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderAddressId != null and orderAddressId.length != 0">
+                orderAddressId ,
+            </if>
+            <if test="orderId != null and orderId.length != 0">
+                orderId ,
+            </if>
+            <if test="addressId != null and addressId.length != 0">
+                addressId ,
+            </if>
+        </trim>
+
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="orderAddressId != null and orderAddressId.length != 0">
+                #{orderAddressId},
+            </if>
+            <if test="orderId != null and orderId.length != 0">
+                #{orderId},
+            </if>
+            <if test="addressId != null and addressId.length != 0">
+                #{addressId},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

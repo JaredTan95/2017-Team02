@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LeXian-WebSite:war">
+    <output-path>$PROJECT_DIR$/LeXian-WebSite/target</output-path>
+    <root id="archive" name="LeXian-WebSite.war">
+      <element id="artifact" artifact-name="LeXian-WebSite:war exploded" />
+    </root>
+  </artifact>
+</component>

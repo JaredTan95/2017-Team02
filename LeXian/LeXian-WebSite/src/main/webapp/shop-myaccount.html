@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+<head>
+    <title>乐鲜商城 | 会员中心</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link rel="stylesheet" type="text/css" href="css/jiazaitoubu.css">
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/index2.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/center.css">
+    <!--城市联动-->
+    <link rel="stylesheet" type="text/css" href="city/city.css">
+    <script src="city/Popt.js"></script>
+    <script src="city/cityJson.js"></script>
+    <script src="city/citySet.js"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/shop.style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/scrollbar/src/perfect-scrollbar.css">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="assets/css/pages/log-reg-v3.css">
+
+    <!-- Style Switcher -->
+    <link rel="stylesheet" href="assets/css/plugins/style-switcher.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body class="header-fixed">
+<div class="wrapper" id="userCenter">
+    <!--=== Header v5 ===-->
+    <div class="header-v5 header-static">
+        <!-- Topbar v3 -->
+        <div class="topbar-v3">
+            <div class="search-open">
+                <div class="container">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="search-close"><i class="icon-close"></i></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="list-inline right-topbar pull-right">
+                            <li id="toMyKeFu" style="display: none;"><a href="#!" onclick="jump2KeFu()">我的客服</a></li>
+                            <li id="toMyAccount" style="display: none;"><a href="">我的账户</a></li>
+                            <li id="toMyFav" style="display: none;"><a href="shop-myShopCart.html">我的收藏夹</a></li>
+                            <li id="toLoginOrReg" style="display: none;"><a href="#!" class=" trigger-custom">登录</a> |
+                                <a href="#!">注册</a></li>
+                            <li><i class="search fa fa-search search-button"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--/container-->
+        </div>
+        <!-- End Topbar v3 -->
+
+        <!-- Navbar -->
+        <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--</button>-->
+                    <a class="navbar-brand" href="index.html" style="margin-top: 25px">
+                        <!--<img id="logo-header" src="assets/img/logo.png" alt="Logo">-->
+                        乐鲜mall
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <!-- Badge -->
+                    <ul class="list-inline shop-badge badge-lists badge-icons pull-right"
+                        style="font-size: 20px;margin-top: 10px">
+                        <li class="dropdown active">
+                            <a href="#!" class="dropdown-toggle" data-hover="dropdown"
+                               data-toggle="dropdown">
+                                首页
+                            </a>
+
+                        </li>
+                        <!-- End Pages -->
+
+                        <li class="dropdown">
+                            <a href="#!" target="_blank">商品分类</a>
+                            <ul id="category" class="badge-open home-category">
+                                <li></li>
+                                <li v-for="item in map.categoryLists">
+                                    <!--shop-category.html?categoryId=item.categoryid-->
+                                    <a v-bind:href="['shop-category.html?categoryId='+item.categoryid+'&categorytitle='+item.categorytitle]"
+                                       target="_blank">{{item.categorytitle}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop-myShopCart.html"><i class="fa fa-shopping-cart"></i></a>
+                            <span class="badge badge-sea rounded-x">3</span>
+                            <ul id="scrollbar" class="list-unstyled badge-open contentHolder">
+                                <li>
+                                    <img src="assets/img/thumb/01.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>乔丹</span>
+                                        <small>1 x ￥400.00</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="assets/img/thumb/02.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>乔丹</span>
+                                        <small>1 x ￥400.00</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="assets/img/thumb/03.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>乔丹</span>
+                                        <small>1 x ￥400.00</small>
+                                    </div>
+                                </li>
+                                <li class="subtotal">
+                                    <div class="overflow-h margin-bottom-10">
+                                        <span>小计</span>
+                                        <span class="pull-right subtotal-cost">￥1200.00</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <a href="shop-item.html"
+                                               class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">商品详情</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="shop-myShopCart.html"
+                                               class="btn-u btn-u-sea-shop btn-block">购物车</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Badge -->
+
+                    <!-- <ul class="nav navbar-nav">
+                         <li class="login">
+                         <a hrshop-login.htmlhtml">用户登录</a>
+                         </li>
+
+                         <li class="login">
+                         <a href="shop-ui-register.html">用户注册</a>
+                         </li>
+                     </ul>-->
+                </div><!--/navbar-collapse-->
+            </div>
+        </div>
+        <!-- End Navbar -->
+    </div>
+    <!--=== End Header v5 ===-->
+
+    <!--=== Breadcrumbs v4 ===-->
+    <div class="breadcrumbs-v4">
+        <div class="container">
+            <span class="page-name">会员中心</span>
+            <ul class="breadcrumb-v4-in">
+                <li><a href="index.html">首页</a></li>
+                <li class="active">会员中心</li>
+            </ul>
+        </div><!--/end container-->
+    </div>
+    <!--=== End Breadcrumbs v4 ===-->
+
+    <!--=== Login ===-->
+    <div class="log-reg-v3 content-md" style="margin-top: 0;padding-top: 0">
+
+        <!--centers-->
+        <div class="centers_m">
+            <!--清除浮动-->
+            <div class="clear_sm"></div>
+            <!--left-->
+            <div class="centers_ml">
+                <!--头像-->
+                <div class="center_header">
+                    <a href="#!"></a>
+                    <em>您好，<strong id="showMyName" class="showMyName"></strong></em>
+                </div>
+                <!--列表go-->
+                <div class="centers_listm">
+                    <div class="centers_listm_one">
+                        <img src="assets/img/zshy.png"/>
+                        <em>会员中心</em>
+                    </div>
+                    <!--一条开始-->
+                    <div class="centers_listm_one_in">
+                        <img src="assets/img/shezhi.png"/>
+                        <em>资料管理</em>
+                        <b></b>
+                    </div>
+                    <span class="gjszmdm">
+                <a onclick="show(1)" class="center_in_self"><font>信息资料</font></a>
+                <a onclick="show(19)" class="center_in_self"><font>收货地址管理</font></a>
+
+            </span>
+                    <!--一条开始-->
+                    <div class="centers_listm_one_in">
+                        <img src="assets/img/ddgl.png"/>
+                        <em>订单管理</em>
+                        <b></b>
+                    </div>
+                    <span class="gjszmdm">
+                <a onclick="show(15)" class="center_in_self"><font>我的订单</font></a>
+            </span>
+                    <!--一条开始-->
+                    <div class="centers_listm_one_in">
+                        <img src="assets/img/wdssc.png"/>
+                        <em>收藏管理</em>
+                        <b></b>
+                    </div>
+                    <span class="gjszmdm">
+                <a onclick="show(16)" class="center_in_self"><font>商品收藏</font></a>
+            </span>
+                    <!--一条开始-->
+
+
+                </div>
+
+            </div>
+            <!--right-->
+            <div class="centers_mr">
+                <!--一条开始-->
+                <div class="public_m1" id="d1" name="dv">
+
+                    <div class="public_m2">资料管理</div>
+                    <!--照片和内容-->
+                    <div class="zp_nrm">
+                        <!--left-->
+                        <div class="zp_nrm_l">
+                            <img src="http://osgqba1v5.bkt.clouddn.com/pic.jpg?imageView2/1/w/255/h/380/q/75|imageslim"/>
+                            <!--  <a href="#">更换头像</a>-->
+                        </div>
+                        <!--right-->
+                        <div class="zp_nrm_r">
+                            <p><em>用户名：</em><i>{{map.user.username}}</i></p>
+                            <p><em>邮箱：</em><i>{{map.user.usermail}}</i><a href="#"></a></p>
+                            <!--         <a href="#" class="public_m3">保存修改</a>-->
+                        </div>
+                    </div>
+                </div>
+                <!--一条开始-->
+                <!--一条开始-->
+                <div class="public_m1" id="d3" name="dv">
+                    <div class="public_m2">订单状态</div>
+                    <!--各种进度-->
+                    <div class="gezhong_jdm">
+                        <img src="images/jkkll.png"/>
+                        <!--  <ul>
+                              <li>状态填写</li>
+                              <li>状态填写</li>
+                              <li>状态填写</li>
+                              <li>状态填写</li>
+                          </ul>-->
+                    </div>
+                    <!--各种信息-->
+                    <div class="gezhong_xxm">
+                        <ul>
+                            <li><em>商家：</em><a href="#">木木小店</a></li>
+                            <li><em>订单号：</em><a href="#">2016102111523538</a></li>
+                            <li><em>预约时间：</em><i>12:00-14:00</i></li>
+                            <li><em>订购热线：</em><i>7310237</i></li>
+                            <li><em>下单时间：</em><i>2016-10-21 11:52:38</i></li>
+                            <li><em>订单状态：</em><i>已取消</i></li>
+                            <li><em>订餐类型：</em><i>餐位订餐</i></li>
+                        </ul>
+                    </div>
+                    <!--一个订单信息-->
+                    <div class="public_m5">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr style=" border-bottom:1px solid #000">
+                                <th class="olist1">菜品</th>
+                                <th class="olist2">单价（元）</th>
+                                <th class="olist3">数量</th>
+                                <th class="olist4">单位</th>
+                                <th class="olist5">小计</th>
+                            </tr>
+                            <tr>
+                                <td><a href="#">青岛大虾</a></td>
+                                <td>￥288.00</td>
+                                <td>3</td>
+                                <td class="money">只</td>
+                                <td>￥864.00</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">肉肉</a></td>
+                                <td>￥288.00</td>
+                                <td>3</td>
+                                <td class="money">盘</td>
+                                <td>￥864.00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--位置信息-->
+                    <div class="weizhi_xxm">
+                        位置信息：<font>大厅11号桌</font>
+                    </div>
+                    <!--合计金额-->
+                    <div class="heji_jem">
+                        合计金额：<font>1038.00元</font>
+                    </div>
+                    <!--订餐留言-->
+                    <div class="dingcan_lym">
+                        <em>订餐留言：</em>
+                        <p>最佳答案：APP是英文Application(应用)的简称,由于iPhone智能手机的流行,现在的APP多指移动设备(包括平板电脑、手机、和其他移动设备)上的第三方应用程序。
+                            目前比...</p>
+                    </div>
+                </div>
+                <!--一条开始-->
+                <div class="public_m1" id="d6" name="dv">
+                    <div class="public_m2">绑定邮箱</div>
+                    <!--提示信息-->
+                    <div class="tip_notem">
+                        <ul>
+                            <li>1. 此邮箱将接收密码找回，订单通知等敏感性安全服务及提醒使用，请务必填写正确地址。</li>
+                            <li>2. 设置提交后，系统将自动发送验证邮件到您绑定的信箱，您需在24小时内登录邮箱并完成验证。</li>
+                            <li>3. 更改邮箱时，请通过安全验证后重新输入新邮箱地址绑定。</li>
+                        </ul>
+                    </div>
+                    <div class="public_m4">
+                        <p>
+                            <em>绑定邮箱地址：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px">
+                        </p>
+                        <a href="#" class="public_m3">发送验证邮件</a>
+                    </div>
+                </div>
+                <!--一条开始-->
+                <div class="public_m1" id="d8" name="dv">
+                    <div class="public_m2">登录密码修改</div>
+                    <!--提示信息-->
+                    <div class="tip_notem">
+                        <ul>
+                            <li>1.请牢记登录密码</li>
+                            <li>2.如果丢失密码，可以通过绑定的手机或邮箱找到</li>
+                        </ul>
+                    </div>
+                    <div class="public_m4">
+                        <p>
+                            <em>原密码：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px">
+                        </p>
+                        <p>
+                            <em>新的密码：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px">
+                        </p>
+                        <p>
+                            <em>确认密码：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px">
+                        </p>
+                        <a href="#" class="public_m3">确认修改</a>
+                    </div>
+                </div>
+                <!--一条开始-->
+                <div class="public_m1" id="d10" name="dv">
+                    <div class="public_m2">收藏商品</div>
+                    <!--一个订单信息-->
+                    <div class="public_m5">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr style=" border-bottom:1px solid #000">
+                                <th class="olist1">店铺名</th>
+                                <th class="olist2">店铺地址</th>
+                                <th class="olist3">收藏人气</th>
+                                <th class="olist4">菜系</th>
+                                <th class="olist5">操作</th>
+                            </tr>
+                            <tr>
+                                <td><a href="#">我的店</a></td>
+                                <td>黄台家具广场...</td>
+                                <td>3</td>
+                                <td class="money">鲁菜</td>
+                                <td><a href="#">取消收藏</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--当没有东西时的东西-->
+                    <div class="public_m6">
+                        <img src="images/danmgydxm.png"/>
+                    </div>
+                </div>
+                <!--一条开始-->
+
+                <!--一条开始-->
+                <div class="public_m1" id="d14" name="dv">
+                    <!--left-->
+                    <div class="public_m1_l">
+                        <!--top-->
+                        <div class="public_m1_top">
+                            <ul>
+                                <li>
+                                    <img src="images/jif.png"/>
+                                    <em>205分</em>
+                                    <p>我的积分</p>
+                                </li>
+                                <li>
+                                    <img src="images/yue.png"/>
+                                    <em>9580.0元</em>
+                                    <p>账户余额</p>
+                                </li>
+                                <li>
+                                    <img src="images/kouw.png"/>
+                                    <em>偏辣</em>
+                                    <p>口味偏好</p>
+                                </li>
+                                <li>
+                                    <img src="images/weizh.png"/>
+                                    <em>济南</em>
+                                    <p>所在位置</p>
+                                </li>
+                                <li>
+                                    <img src="images/dengj.png"/>
+                                    <em>Lv1</em>
+                                    <p>会员等级</p>
+                                </li>
+                                <li>
+                                    <img src="images/shouj.png"/>
+                                    <em>未设置</em>
+                                    <p>手机绑定</p>
+                                </li>
+                                <li>
+                                    <img src="images/youx.png"/>
+                                    <em>未设置</em>
+                                    <p>邮箱绑定</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--bottom-->
+                        <div class="public_m1_bottom">
+                            <h4>账户安全<font>低</font></h4>
+                            <span>
+                    	<p style="width:36%"></p>
+                    </span>
+                            <a href="#">立即提升</a>
+                        </div>
+                    </div>
+                    <!--right-->
+                    <div class="public_m1_r">
+
+                        <div class="example1">
+                            <ul>
+                                <li><img src="images/cross_fire.jpg"/></li>
+                                <li><img src="images/cross_fire.jpg"/></li>
+                                <li><img src="images/cross_fire.jpg"/></li>
+                                <li><img src="images/cross_fire.jpg"/></li>
+                            </ul>
+                            <ol>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!--占空隙-->
+                <div class="whatfuck_m"></div>
+                <div class="public_m1" id="d15" name="dv">
+                    <div class="public_m2">交易记录</div>
+                    <!--一个订单信息-->
+                    <div class="public_m5">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr style=" border-bottom:1px solid #000">
+                                <th class="olist1">订单号</th>
+                                <th class="olist2">订单类型</th>
+                                <th class="olist3">订单商家</th>
+                                <th class="olist4">订单总额</th>
+                                <th class="olist5">下单时间</th>
+                                <th class="olist4">交易状态</th>
+                                <th class="olist5">操作</th>
+                            </tr>
+                            <tr>
+                                <td><a href="#">2016102111523538</a></td>
+                                <td>餐位订餐</td>
+                                <td><a href="#">牛牛的店</a></td>
+                                <td>￥1666.00</td>
+                                <td>16/06/06 20:45</td>
+                                <td><font class="jdqbsys_m">待付款</font></td>
+                                <td><a href="#">付款</a><a href="#">取消订单</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">2016102111523538</a></td>
+                                <td>餐位订餐</td>
+                                <td><a href="#">牛牛的店</a></td>
+                                <td>￥1666.00</td>
+                                <td>16/06/06 20:45</td>
+                                <td><font class="jds_m">待评价</font></td>
+                                <td><a href="#">评价</a><a href="#">投诉</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">2016102111523538</a></td>
+                                <td>餐位订餐</td>
+                                <td><a href="#">牛牛的店</a></td>
+                                <td>￥1666.00</td>
+                                <td>16/06/06 20:45</td>
+                                <td><font class="jds_m">已完成</font></td>
+                                <td><a href="#">删除</a><a href="#">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">2016102111523538</a></td>
+                                <td>餐位订餐</td>
+                                <td><a href="#">牛牛的店</a></td>
+                                <td>￥1666.00</td>
+                                <td>16/06/06 20:45</td>
+                                <td><font class="jdqbsys_m">待付款</font></td>
+                                <td><a href="#">付款</a><a href="#">取消订单</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">2016102111523538</a></td>
+                                <td>餐位订餐</td>
+                                <td><a href="#">牛牛的店</a></td>
+                                <td>￥1666.00</td>
+                                <td>16/06/06 20:45</td>
+                                <td><font class="jdqbsys_m">待付款</font></td>
+                                <td><a href="#">付款</a><a href="#">取消订单</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">2016102111523538</a></td>
+                                <td>餐位订餐</td>
+                                <td><a href="#">牛牛的店</a></td>
+                                <td>￥1666.00</td>
+                                <td>16/06/06 20:45</td>
+                                <td><font class="jdqbsys_m">待付款</font></td>
+                                <td><a href="#">付款</a><a href="#">取消订单</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--查看更多-->
+                    <div class="chagd_m">
+                        <a href="#">查看更多</a>
+                    </div>
+                </div>
+                <!--占空隙-->
+                <div class="whatfuck_m"></div>
+                <div class="public_m1" id="d16" name="dv">
+                    <!--收藏菜品和收藏店铺还有查看中心-->
+                    <div class="pingpyj_m">
+                        <span tg-floor="1" tg-ct="lq02">菜品收藏</span>
+                        <a href="#">更多></a>
+                    </div>
+                    <!--大包-->
+                    <div class="thisis_m">
+                        <ul class="q-1-lq01">
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>5000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>5000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>5000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>5000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>5000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>5000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                        </ul>
+                        <ul class="q-1-lq02">
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>6000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>6000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>6000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>6000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>6000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <h5>城南往事</h5>
+                                <span>人气：<i>6000</i></span>
+                                <p><em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!--一条开始-->
+                <!--一条开始-->
+                <div class="public_m1" id="d18" name="dv">
+                    <div class="public_m2">我的消息</div>
+
+                    <!--充值提现-->
+                    <div class="chongzhi_htxm">
+                        <a href="#">店铺收藏</a>
+                        <a href="#">菜品收藏</a>
+                    </div>
+                    <!--全选和删除-->
+                    <div class="chice_allm">
+                        <input type="checkbox">
+                        <i>全选</i>
+                        <a href="#!">删除</a>
+                    </div>
+                    <!--收藏开始-->
+                    <div class="rensw_bejm">
+                        <ul>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                            <li>
+                                <img src="images/mkjlm.jpg"/>
+                                <a href="#"><h5>城南往事</h5></a>
+                                <span>人气：<i>5000</i></span>
+                                <p>
+                                    <em>菜系：</em>
+                                    <b><img src="images/lu.png"/></b>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="public_m6">
+                        <img src="images/danmgydxm.png"/>
+                    </div>
+                </div>
+
+                <!--新增收货地址-->
+                <div class="public_m1" id="d19" name="dv">
+                    <div class="public_m2">新增收货地址</div>
+                    <!--提示信息-->
+                    <div class="tip_notem">
+                        <ul>
+                            <li>1.收货地址请填写准确</li>
+                            <li>2.为了您的方便，请尽量填写您居住的地址</li>
+                        </ul>
+                    </div>
+                    <div class="public_m4">
+                        <!--<p><em>您当前的银行账号：</em><i>您还未设置银行卡信息</i></p>-->
+                        <p>
+                            <em>地区：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px;">
+                            <!--<select style=" height:23px; border:1px solid #eaeaea">-->
+                            <!--<option>-请选择-</option>-->
+                            <!--<option>中国工商银行</option>-->
+                            <!--</select>-->
+                        </p>
+                        <p>
+                            <em>收货地址：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px">
+                        </p>
+                        <p>
+                            <em>邮政编号：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px">
+                        </p>
+                        <p>
+                            <em>姓名：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px;">
+                            <!--value="这里放地点插件"-->
+                        </p>
+                        <p>
+                            <em>手机号码：</em>
+                            <input type="text" style=" height:23px; border:1px solid #eaeaea; width:140px;">
+                            <!--value="这里放地点插件"-->
+                        </p>
+                        <a href="#" class="public_m3">保存修改</a><br><br>
+                        <p>已保存的地址</p>
+                        <div class="public_m5" id="showAllMyAddress">
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <tbody v-if="">
+                                <tr style=" border-bottom:1px solid #000">
+                                    <th class="olist1">收货人</th>
+                                    <th class="olist2">收货地址</th>
+                                    <th class="olist4">邮编</th>
+                                    <th class="olist5">电话/手机</th>
+                                </tr>
+                                <tr v-for="item in map.address">
+                                    <td><a href="#!">{{item.addressname}}</a></td>
+                                    <td>{{item.addressstr}}</td>
+                                    <td><a href="#!">{{item.addresspost}}</a></td>
+                                    <td>{{item.addressphone}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--新增收货地址结束-->
+            </div>
+        </div>
+        <!--页脚-->
+
+
+    </div>
+    <!--=== Footer v4 ===-->
+    <!--=== Footer v4 ===-->
+    <div class="footer-v4">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- About -->
+                    <div class="col-md-4 md-margin-bottom-40">
+                        <a href="index.html" style="font-size: 30px">
+                            <!--<img class="footer-logo" src="assets/img/logo-2.png" alt="">-->
+                            乐鲜商城
+                        </a>
+                        <p>乐鲜精选，只为更好的你！</p>
+                        <br>
+                        <ul class="list-unstyled address-list margin-bottom-20">
+                            <li><i class="fa fa-angle-right"></i>重庆交通大学知园小区</li>
+                            <li><i class="fa fa-angle-right"></i>电话: 000 12345678</li>
+                            <li><i class="fa fa-angle-right"></i>传真: 000 12345678</li>
+                            <li><i class="fa fa-angle-right"></i>邮箱: cqjtu.edu@cqjtu.cn</li>
+                        </ul>
+
+                        <ul class="list-inline shop-social">
+                            <li><a href="#"><i class="fb rounded-md fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="tw rounded-md fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="gp rounded-md fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="yt rounded-md fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- End About -->
+
+                    <!-- Simple List -->
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h2 class="thumb-headline">消费者保障</h2>
+                                <ul class="list-unstyled simple-list margin-bottom-20">
+                                    <li><a href="#">保障范围 </a></li>
+                                    <li><a href="#">退货退款流程</a></li>
+                                    <li><a href="#">服务中心 </a></li>
+                                    <li><a href="#">更多特色服务</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h2 class="thumb-headline">新手上路</h2>
+                                <ul class="list-unstyled simple-list">
+                                    <li><a href="#">新手专区</a></li>
+                                    <li><a href="#">消费警示</a></li>
+                                    <li><a href="#">交易安全 </a></li>
+                                    <li><a href="#">24小时在线帮助</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-6">
+                                <h2 class="thumb-headline">付款方式</h2>
+                                <ul class="list-unstyled simple-list margin-bottom-20">
+                                    <li><a href="#">快捷支付</a></li>
+                                    <li><a href="#">信用卡</a></li>
+                                    <li><a href="#">余额宝 </a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-12 col-xs-6">
+                                <h2 class="thumb-headline">乐鲜特色</h2>
+                                <ul class="list-unstyled simple-list">
+                                    <li><a href="#">乐鲜评审</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Simple List -->
+        </div><!--/end row-->
+    </div>
+    <!--=== End Footer v4 ===-->
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script src="assets/plugins/back-to-top.js"></script>
+<!-- Login Form -->
+<script src="assets/plugins/sky-forms/version-2.0.1/js/jquery.form.min.js"></script>
+<!-- Validation Form -->
+<script src="assets/plugins/sky-forms/version-2.0.1/js/jquery.validate.min.js"></script>
+<!-- Scrollbar -->
+<script src="assets/plugins/scrollbar/src/jquery.mousewheel.js"></script>
+<script src="assets/plugins/scrollbar/src/perfect-scrollbar.js"></script>
+<!-- JS Customization -->
+<script src="assets/js/custom.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="js/jquery.luara.0.0.1.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/vue.js"></script>
+<!-- JS Page Level -->
+<script src="assets/js/shop.app.js"></script>
+<script src="assets/js/forms/page_login.js"></script>
+<script src="assets/js/forms/page_contact_form.js"></script>
+<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        App.init();
+        Login.initLogin();
+        PageContactForm.initPageContactForm();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/html5shiv.js"></script>
+<script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
+<script src="assets/plugins/sky-forms/version-2.0.1/js/sky-forms-ie8.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src="assets/plugins/sky-forms/version-2.0.1/js/jquery.placeholder.min.js"></script>
+<![endif]-->
+
+<script>
+    window.onload = function () {
+        $(".aside").css({display: "none"})
+        $(".important").mouseenter(function () {
+            $(".aside").css({display: "block"})
+        }).mouseleave(function () {
+            $(".aside").css({display: "none"})
+        })
+    };
+    //    <ul>
+    //    <li><a onclick="show(1)">第一个</a></li>
+    //        <li><a onclick="show(2)">第二个</a></li>
+    //        <li><a onclick="show(3)">第三个</a></li>
+    //        </ul>
+    //        <div>
+    //        <div id="d1" name="dv">第一个</div>
+    //        <div id="d2" name="dv">第二个</div>
+    //        <div id="d3" name="dv">第三个</div>
+    //        </div>
+    //        <script>
+    function show(id) {
+        var divs = document.getElementsByName("dv");
+        switch (id) {
+            case 1: {
+            }
+                break;
+            case 2: {
+            }
+                break;
+            case 3: {
+            }
+                break;
+            case 4: {
+            }
+                break;
+            case 19: {
+                $.getJSON("/user/address/queryAll?token=" + $.LeXian.getMyToken(), function (data) {
+                    try {
+                        if (data.map.error === "没有权限") {
+                            layer.msg(data.map.error + "请先登录~~");
+                            window.location.href = "/";
+                        } else {
+                            console.log(data);
+                            new Vue({
+                                el: '#showAllMyAddress',
+                                data: data
+                            });
+                        }
+                    } catch (err) {
+                        layer.msg("网络异常～");
+                    }
+                });
+            }
+                break;
+        }
+        for (var i = 0; i < divs.length; i++) {
+            if (divs[i].id == "d" + id) {
+                divs[i].style.display = ""
+            } else {
+                divs[i].style.display = "none"
+            }
+        }
+    }
+
+    $(function () {
+        $(".pingpyj_m span").click(function () {
+            $(this).addClass("lianj_m").siblings().removeClass("lianj_m")
+            var tbs = $(this).attr("tg-floor")
+            var tb = $(this).attr("tg-ct");
+            $(".q-" + tbs + "-" + tb + "").show().siblings().hide();
+        })
+
+    });
+    $(function () {
+        $(".example1").luara({
+            width: "352",
+            height: "175",
+            interval: 5000,
+            selected: "seleted",
+            deriction: "top"
+        });
+    });
+    $(function () {//第一步都得写这个
+        $(".centers_listm_one_in").click(function () {
+            $(this).next(".gjszmdm").slideToggle().siblings("gjszmdm").slideUp()
+        });
+    });
+</script>
+<script type="text/javascript">
+    $.getJSON("/user/getInfo", function (data) {
+        console.log(data);
+        new Vue({
+            el: '#userCenter',
+            data: data
+        });
+    });
+    $('.showMyName').val($.LeXian.getMyName());
+    $.getJSON("/user/category/query", function (data) {
+        console.log(data);
+        var categoryLists = new Vue({
+            el: '#category',
+            data: data
+        });
+    });
+    $.getJSON("/user/address/queryAll?token=" + $.LeXian.getMyToken(), function (data) {
+        try {
+            console.log(data);
+            new Vue({
+                el: '#showAllMyAddress',
+                data: data
+            });
+        }
+        catch (err) {
+            window.location.href = "/shop-login.html";
+        }
+
+    });
+</script>
+</body>
+</html> 

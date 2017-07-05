@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.AddressMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.Address">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <id column="addressId" jdbcType="VARCHAR" property="addressid" />
+    <result column="addressStr" jdbcType="VARCHAR" property="addressstr" />
+    <result column="addressPhone" jdbcType="CHAR" property="addressphone" />
+    <result column="addressName" jdbcType="VARCHAR" property="addressname" />
+    <result column="addressPost" jdbcType="CHAR" property="addresspost" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, addressId, addressStr, addressPhone, addressName, addressPost
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.cqjtu.lexian.model.AddressKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where userId = #{userid,jdbcType=VARCHAR}
+      and addressId = #{addressid,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="cn.cqjtu.lexian.model.AddressKey">
+    delete from address
+    where userId = #{userid,jdbcType=VARCHAR}
+      and addressId = #{addressid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.Address">
+    insert into address (userId, addressId, addressStr, 
+      addressPhone, addressName, addressPost
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{addressid,jdbcType=VARCHAR}, #{addressstr,jdbcType=VARCHAR}, 
+      #{addressphone,jdbcType=CHAR}, #{addressname,jdbcType=VARCHAR}, #{addresspost,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.Address">
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="addressid != null">
+        addressId,
+      </if>
+      <if test="addressstr != null">
+        addressStr,
+      </if>
+      <if test="addressphone != null">
+        addressPhone,
+      </if>
+      <if test="addressname != null">
+        addressName,
+      </if>
+      <if test="addresspost != null">
+        addressPost,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="addressid != null">
+        #{addressid,jdbcType=VARCHAR},
+      </if>
+      <if test="addressstr != null">
+        #{addressstr,jdbcType=VARCHAR},
+      </if>
+      <if test="addressphone != null">
+        #{addressphone,jdbcType=CHAR},
+      </if>
+      <if test="addressname != null">
+        #{addressname,jdbcType=VARCHAR},
+      </if>
+      <if test="addresspost != null">
+        #{addresspost,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.Address">
+    update address
+    <set>
+      <if test="addressstr != null">
+        addressStr = #{addressstr,jdbcType=VARCHAR},
+      </if>
+      <if test="addressphone != null">
+        addressPhone = #{addressphone,jdbcType=CHAR},
+      </if>
+      <if test="addressname != null">
+        addressName = #{addressname,jdbcType=VARCHAR},
+      </if>
+      <if test="addresspost != null">
+        addressPost = #{addresspost,jdbcType=CHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+      and addressId = #{addressid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.Address">
+    update address
+    set addressStr = #{addressstr,jdbcType=VARCHAR},
+      addressPhone = #{addressphone,jdbcType=CHAR},
+      addressName = #{addressname,jdbcType=VARCHAR},
+      addressPost = #{addresspost,jdbcType=CHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+      and addressId = #{addressid,jdbcType=VARCHAR}
+  </update>
+</mapper>

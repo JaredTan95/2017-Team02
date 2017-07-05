@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-Admin" />
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-Site" />
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-Web/Back" />
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-Web/Back-Web" />
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-Web/Front" />
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-Web/Front-Web" />
+    <file type="web" url="file://$PROJECT_DIR$/LeXian-WebSite" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXian-Web/Back/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXian-Common/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXian-Service/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/LeXian-Site/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXian-Web/Back-Web/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXian-Web/Front-Web/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXian-Web/pom.xml" />
+        <option value="$PROJECT_DIR$/LeXianWeb/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://172.18.10.233/svn/team02/team02-%E8%B0%AD%E5%BB%BA/project/LeXian" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

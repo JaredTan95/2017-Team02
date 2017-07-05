@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.ProductionExpandMapper">
+
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.Production">
+    <id column="proId" jdbcType="VARCHAR" property="proid" />
+    <result column="production_status_id" jdbcType="INTEGER" property="productionStatusId" />
+    <result column="proBar" jdbcType="VARCHAR" property="probar" />
+    <result column="proName" jdbcType="VARCHAR" property="proname" />
+    <result column="proPrice" jdbcType="DECIMAL" property="proprice" />
+    <result column="proDscp" jdbcType="VARCHAR" property="prodscp" />
+    <result column="proDetailDscp" jdbcType="VARCHAR" property="prodetaildscp" />
+    <result column="proMainPic" jdbcType="VARCHAR" property="promainpic" />
+    <result column="proStorage" jdbcType="INTEGER" property="prostorage" />
+    <result column="proSaleVolume" jdbcType="INTEGER" property="prosalevolume" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    production.proId, production_status_id, proBar, proName, proPrice, proDscp, proDetailDscp, proMainPic,
+    proStorage, proSaleVolume
+  </sql>
+  <select id="findProductionByProductionQuery" parameterType="cn.cqjtu.lexian.model.ProductionQuery" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from production LEFT  JOIN pro2cate ON production.proId = pro2cate.proId LEFT  JOIN  category ON  pro2cate.categoryId = category.categoryId
+
+    <trim prefix=" where " suffixOverrides="AND">
+      <if test="categoryId != null and categoryId.length != 0">
+         category.categoryId=#{categoryId} AND
+      </if>
+      <if test="proName != null and proName.length !=0">
+        proName LIKE '%${proName}%' AND
+      </if>
+      <if test="productionStatusId != null and productionStatusId != 0">
+        production_status_id = #{productionStatusId} AND
+      </if>
+      <if test="productionId !=null and productionId.length != 0">
+        production.proId=#{productionId} AND
+      </if>
+
+        <if test="maxPrice != null ">
+          proPrice &lt;  #{maxPrice} AND
+        </if>
+        <if test="minPrice !=null">
+          proPrice &gt; #{minPrice}
+        </if>
+
+
+      <if test=" orderByVolume !=null and orderByVolume.length != 0">
+        ORDER  BY  proSaleVolume DESC
+      </if>
+    </trim>
+  </select>
+
+
+
+
+  <update id="cancleProduction" parameterType="java.lang.String">
+    UPDATE production SET  production_status_id=2 WHERE
+     proId=#{productionId}
+  </update>
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.cqjtu.lexian.dao.AddressExpandMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.Address">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <id column="addressId" jdbcType="VARCHAR" property="addressid" />
+    <result column="addressStr" jdbcType="VARCHAR" property="addressstr" />
+    <result column="addressPhone" jdbcType="CHAR" property="addressphone" />
+    <result column="addressName" jdbcType="VARCHAR" property="addressname" />
+    <result column="addressPost" jdbcType="CHAR" property="addresspost" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, addressId, addressStr, addressPhone, addressName, addressPost
+  </sql>
+
+
+  <select id="selectByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from address
+    where userId = #{userId,jdbcType=VARCHAR}
+  </select>
+
+
+
+
+  <select id="findAddressByAddressId" parameterType="java.lang.String"
+              resultType="cn.cqjtu.lexian.model.Address">
+      SELECT userId, addressId, addressStr, addressPhone, addressName, addressPost
+      FROM address
+      where addressId=#{addressId}
+  </select>
+
+
+  <insert id="addAddress" parameterType="cn.cqjtu.lexian.model.Address">
+     insert into address (userId, addressId, addressStr,
+      addressPhone, addressName, addressPost
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{addressid,jdbcType=VARCHAR}, #{addressstr,jdbcType=VARCHAR},
+      #{addressphone,jdbcType=CHAR}, #{addressname,jdbcType=VARCHAR}, #{addresspost,jdbcType=CHAR}
+      )
+  </insert>
+
+
+
+</mapper>

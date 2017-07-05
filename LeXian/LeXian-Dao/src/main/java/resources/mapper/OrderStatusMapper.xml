@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.OrderStatusMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.OrderStatus">
+    <id column="orderstatus_id" jdbcType="INTEGER" property="orderstatusId" />
+    <result column="orderstatus_desc" jdbcType="VARCHAR" property="orderstatusDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    orderstatus_id, orderstatus_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orderStatus
+    where orderstatus_id = #{orderstatusId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderStatus
+    where orderstatus_id = #{orderstatusId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.OrderStatus">
+    insert into orderStatus (orderstatus_id, orderstatus_desc)
+    values (#{orderstatusId,jdbcType=INTEGER}, #{orderstatusDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.OrderStatus">
+    insert into orderStatus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderstatusId != null">
+        orderstatus_id,
+      </if>
+      <if test="orderstatusDesc != null">
+        orderstatus_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderstatusId != null">
+        #{orderstatusId,jdbcType=INTEGER},
+      </if>
+      <if test="orderstatusDesc != null">
+        #{orderstatusDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.OrderStatus">
+    update orderStatus
+    <set>
+      <if test="orderstatusDesc != null">
+        orderstatus_desc = #{orderstatusDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orderstatus_id = #{orderstatusId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.OrderStatus">
+    update orderStatus
+    set orderstatus_desc = #{orderstatusDesc,jdbcType=VARCHAR}
+    where orderstatus_id = #{orderstatusId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<script type="text/javascript" src="../js/plupload.full.min.js"></script>
+<script type="text/javascript" src="../js/qiniu.min.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+
+<!-- 环境初始化 开始-->
+<script language="javascript">
+	$.get('localhosts:8080/admin/getQiNiuUpToken',function (data) {
+        var saveto ='qiniu';   //储存位置为七牛云，对应于插件里的判断值
+        var qiniu_uptoken=data;  //七牛云服务端生成的uptoken
+        var qiniu_upload_domain='http://upload.qiniu.com';   //七牛云上传地址，一般无需修改，https需要修改成对应的七牛云https上传域名
+        var qiniu_bucket_domain='http://oosk9q3p6.bkt.clouddn.com';   //七牛云bucket设置的域名
+    });
+</script>
+<!-- 环境初始化 结束-->
+
+
+</head>
+<body>
+	<textarea name="editor1" id="editor1" rows="20" cols="80"></textarea>
+	<h5>七牛云提供技术支持</h5>
+	<script type="text/javascript">
+
+CKEDITOR.replace('editor1',{"extraPlugins":"filebrowser,image,imagepaste,filetools"});
+
+</script>
+</body>
+</html>

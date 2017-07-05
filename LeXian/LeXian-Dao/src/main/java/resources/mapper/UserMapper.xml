@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.User">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="shopcartId" jdbcType="VARCHAR" property="shopcartid" />
+    <result column="userAccount" jdbcType="VARCHAR" property="useraccount" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="userMail" jdbcType="VARCHAR" property="usermail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userId, shopcartId, userAccount, userName, userPassword, userMail
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userId = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user
+    where userId = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.User">
+    insert into user (userId, shopcartId, userAccount, 
+      userName, userPassword, userMail
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{shopcartid,jdbcType=VARCHAR}, #{useraccount,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, #{usermail,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="shopcartid != null">
+        shopcartId,
+      </if>
+      <if test="useraccount != null">
+        userAccount,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="usermail != null">
+        userMail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopcartid != null">
+        #{shopcartid,jdbcType=VARCHAR},
+      </if>
+      <if test="useraccount != null">
+        #{useraccount,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usermail != null">
+        #{usermail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.User">
+    update user
+    <set>
+      <if test="shopcartid != null">
+        shopcartId = #{shopcartid,jdbcType=VARCHAR},
+      </if>
+      <if test="useraccount != null">
+        userAccount = #{useraccount,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usermail != null">
+        userMail = #{usermail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.User">
+    update user
+    set shopcartId = #{shopcartid,jdbcType=VARCHAR},
+      userAccount = #{useraccount,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      userPassword = #{userpassword,jdbcType=VARCHAR},
+      userMail = #{usermail,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>

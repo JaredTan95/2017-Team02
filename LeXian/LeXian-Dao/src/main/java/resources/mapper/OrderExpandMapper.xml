@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.cqjtu.lexian.dao.OrderExpandMapper">
+
+  <sql id="Base_Column_List">
+    orderId, userAccount, orderTotalPrice, orderDatetime, orderCancleDatetime, finishDatetime,orderStatusDesc
+  </sql>
+
+
+  <select id="orderSelective" parameterType="cn.cqjtu.lexian.model.OrderQuery" resultType="cn.cqjtu.lexian.model.OrderShow">
+    SELECT user.userAccount,userOrder.orderId,userOrder.orderDatetime,userOrder.orderTotalPrice,
+  userOrder.orderCancleDatetime,userOrder.orderFinishDatetime,orderStatus.orderstatus_desc
+FROM (userOrder
+  LEFT JOIN orderStatus ON userOrder.orderstatus_id=orderStatus.orderstatus_id)
+  LEFT JOIN  `user`  ON `user`.userId = userOrder.userId
+
+    <trim prefix="where" suffixOverrides=" and ">
+      <if test="account != null and account.length != 0">
+        `user`.userAccount =#{account} and
+      </if>
+      <if test="orderstatus != null and orderstatus != 0">
+        userOrder.orderstatus_id=#{orderstatus} and
+      </if>
+    </trim>
+
+  </select>
+
+
+
+
+  <select id="findAllMyOrder" parameterType="cn.cqjtu.lexian.model.OrderQuery" resultType="cn.cqjtu.lexian.model.OrderShow">
+    SELECT user.userAccount,userOrder.orderId,userOrder.orderDatetime,userOrder.orderTotalPrice,
+    userOrder.orderCancleDatetime,userOrder.orderFinishDatetime,orderStatus.orderstatus_desc
+    FROM (userOrder
+    LEFT JOIN orderStatus ON userOrder.orderstatus_id=orderStatus.orderstatus_id)
+    LEFT JOIN  `user`  ON `user`.userId = userOrder.userId
+
+    <trim prefix="where" suffixOverrides=" and ">
+      <if test="account != null and account.length != 0">
+        `user`.userAccount =#{account} and
+      </if>
+      <if test="orderstatus != null and orderstatus != 0">
+        userOrder.orderstatus_id=#{orderstatus} and
+      </if>
+    </trim>
+
+  </select>
+
+
+  <update id="payOrder" parameterType="java.lang.String" >
+    UPDATE userOrder SET orderstatus_id=2
+    <trim prefix=" where ">
+      <if test="orderId != null and orderId.length != 0">
+        orderId=#{orderId}
+      </if>
+    </trim>
+  </update>
+
+
+
+  <update id="cancleOrder" parameterType="java.lang.String" >
+    UPDATE userOrder SET orderstatus_id=3
+    <trim prefix=" where ">
+      <if test="orderId != null and orderId.length != 0">
+        orderId=#{orderId}
+      </if>
+    </trim>
+  </update>
+
+
+</mapper>

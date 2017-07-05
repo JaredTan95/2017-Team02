@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.UserExpandMapper">
+
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.User">
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="shopcartId" jdbcType="VARCHAR" property="shopcartid" />
+    <result column="userAccount" jdbcType="VARCHAR" property="useraccount" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="userMail" jdbcType="VARCHAR" property="usermail" />
+  </resultMap>
+
+
+  <select id="findUserByAccount" parameterType="string" resultType="cn.cqjtu.lexian.model.User">
+    SELECT userAccount,userPassword,userName,userId,shopcartId,userMail FROM `user` where userAccount=#{useraccount}
+  </select>
+
+
+
+
+</mapper>

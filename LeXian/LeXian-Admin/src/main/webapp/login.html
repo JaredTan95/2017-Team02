@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 登录</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <script>if (window.top !== window.self) {
+        window.top.location = window.location;
+    }</script>
+</head>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+
+            <h1 class="logo-name">LX</h1>
+
+        </div>
+        <h3>欢迎使用 LeXian后台管理系统</h3>
+
+        <form id="loginForm" class="m-t" role="form" method="post">
+            <div class="form-group">
+                <input type="text" name="adminaccount" class="form-control" placeholder="用户名" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" name="adminpassword" class="form-control" placeholder="密码" required="">
+            </div>
+            <button type="submit" class="btn btn-primary block full-width">登 录</button>
+
+
+            <p class="text-muted text-center"><a href="">
+                <small>忘记密码了？</small>
+            </a> | <a href="#">这里没法注册</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!--layer.js-->
+<script src="/static/js/plugins/layer/layer.min.js"></script>
+<!--自定义js-->
+<script src="/static/js/app.js"></script>
+<script>
+    $('#loginForm').submit(function () {
+        var URL = "/admin/login";
+//        alert(URL);
+        var layerload = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+        $.ajax({
+            url: URL,
+            type: "POST",
+            dataType: "json",
+            data: $('#loginForm').serialize(),
+            success: function (data) {
+                if (data.map.token != null) {
+                    $.LeXian.setCookie("adminaccount", data.map.admin.adminaccount, 1);
+                    $.LeXian.setCookie("token", data.map.token, 1);
+                    window.location.href = "/admin/index";
+                } else {
+                    alert(data.map.error + "\n" + "登录失败");
+                    layer.close(layerload);
+                }
+            }
+        });
+        return false;
+    });
+
+
+    /*var cookie_val = $.JSONCookie("admininfo");
+     cookie_val = { "admin": [{
+     "adminaccount": data.map.admin.adminaccount,
+     "adminid": data.map.admin.adminid,
+     "adminname": data.map.admin.adminaccount,
+     "token":data.map.token
+     }]};*/
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - Bootstrap Table</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+</head>
+
+<body class="gray-bg">
+
+<div class="col-sm-12">
+    <!-- Example Checkbox Select -->
+    <div class="example-wrap">
+        <h3 class="example-title">商品分类详情</h3>
+        <div class="example">
+            <table id="exampleTable">
+                <thead>
+                <!--<tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="categoryTitle">商品分类表</th>
+                </tr>-->
+                </thead>
+            </table>
+        </div>
+    </div>
+    <!-- End Example Checkbox Select -->
+</div>
+<button class="btn btn-danger">删除</button>
+<button class="btn btn-info">修改</button>
+<!-- 全局js -->
+<script src="/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="/static/js/content.js?v=1.0.0"></script>
+<script src="/static/js/app.js"></script>
+
+
+<!-- Bootstrap table -->
+<script src="/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!-- Peity -->
+<!--<script src="/static/js/demo/bootstrap-table-demo.js"></script>-->
+<script>
+    $(document).ready(function () {
+        var token = $.LeXian.getCookie("token");
+        console.log(token);
+        var $table = $('#exampleTable');
+        $.ajax({
+            url: "/admin/category/query?token=" + token,
+            /*data: {"token": token},*/
+            type: "get",
+            success: function (data) {
+                var datalist = data.map.categoryLists;
+                console.log(datalist);
+                $table.bootstrapTable('destroy');
+                $table.bootstrapTable({
+                    pagination: true, //分页
+                    search: true, //显示搜索框
+                    pageSize: 5,
+                    /*sidePagination: "server",*/
+                    striped: true,
+                    clickToSelect: true,
+                    showRefresh: true,
+                    columns: [{
+                        checkbox: true
+                    }, {
+                        title: '分类编号',
+                        field: 'categoryid'
+                    }, {
+                        title: '分类名称',
+                        field: 'categorytitle'
+                    }],
+                    data: datalist
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

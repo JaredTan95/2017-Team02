@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.Category">
+    <id column="categoryId" jdbcType="VARCHAR" property="categoryid" />
+    <result column="categoryTitle" jdbcType="VARCHAR" property="categorytitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    categoryId, categoryTitle
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from category
+    where categoryId = #{categoryid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from category
+    where categoryId = #{categoryid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.Category">
+    insert into category (categoryId, categoryTitle)
+    values (#{categoryid,jdbcType=VARCHAR}, #{categorytitle,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.Category">
+    insert into category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="categoryid != null">
+        categoryId,
+      </if>
+      <if test="categorytitle != null">
+        categoryTitle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="categorytitle != null">
+        #{categorytitle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.Category">
+    update category
+    <set>
+      <if test="categorytitle != null">
+        categoryTitle = #{categorytitle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where categoryId = #{categoryid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.Category">
+    update category
+    set categoryTitle = #{categorytitle,jdbcType=VARCHAR}
+    where categoryId = #{categoryid,jdbcType=VARCHAR}
+  </update>
+</mapper>

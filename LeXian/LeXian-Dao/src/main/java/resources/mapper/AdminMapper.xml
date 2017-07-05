@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.Admin">
+    <id column="adminId" jdbcType="VARCHAR" property="adminid" />
+    <result column="adminAccount" jdbcType="VARCHAR" property="adminaccount" />
+    <result column="adminPassword" jdbcType="VARCHAR" property="adminpassword" />
+    <result column="adminName" jdbcType="VARCHAR" property="adminname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    adminId, adminAccount, adminPassword, adminName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where adminId = #{adminid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from admin
+    where adminId = #{adminid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.Admin">
+    insert into admin (adminId, adminAccount, adminPassword, 
+      adminName)
+    values (#{adminid,jdbcType=VARCHAR}, #{adminaccount,jdbcType=VARCHAR}, #{adminpassword,jdbcType=VARCHAR}, 
+      #{adminname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.Admin">
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adminid != null">
+        adminId,
+      </if>
+      <if test="adminaccount != null">
+        adminAccount,
+      </if>
+      <if test="adminpassword != null">
+        adminPassword,
+      </if>
+      <if test="adminname != null">
+        adminName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adminid != null">
+        #{adminid,jdbcType=VARCHAR},
+      </if>
+      <if test="adminaccount != null">
+        #{adminaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="adminpassword != null">
+        #{adminpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="adminname != null">
+        #{adminname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.Admin">
+    update admin
+    <set>
+      <if test="adminaccount != null">
+        adminAccount = #{adminaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="adminpassword != null">
+        adminPassword = #{adminpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="adminname != null">
+        adminName = #{adminname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where adminId = #{adminid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.Admin">
+    update admin
+    set adminAccount = #{adminaccount,jdbcType=VARCHAR},
+      adminPassword = #{adminpassword,jdbcType=VARCHAR},
+      adminName = #{adminname,jdbcType=VARCHAR}
+    where adminId = #{adminid,jdbcType=VARCHAR}
+  </update>
+</mapper>

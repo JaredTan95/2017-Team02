@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.ShopCartExpandMapper">
+    <select id="findAllMyShopCart" parameterType="cn.cqjtu.lexian.model.User"
+            resultType="cn.cqjtu.lexian.model.ShopCartExpand">
+   SELECT `user`.userId,shopcart.shopcartId,shopcart_production.production_id
+   ,shopcart_production.production_amount,production.proBar
+   ,production.proPrice,production.proName,production.proDscp
+    FROM ((user
+    LEFT JOIN shopcart ON `user`.userId = shopcart.userId)
+    LEFT JOIN shopcart_production ON shopcart.shopcartId = shopcart_production.shopcartId
+    )
+    LEFT JOIN production ON shopcart_production.production_id=production.proId
+    WHERE  `user`.userId=#{userid}
+  </select>
+
+    <delete id="delAllMyShopCart" parameterType="cn.cqjtu.lexian.model.ShopcartProduction">
+        DELETE  FROM shopcart_production WHERE shopcartId =#{shopcartid}
+    </delete>
+</mapper>

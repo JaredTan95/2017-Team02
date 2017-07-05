@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="LeXian-Admin" />
+        <module name="LeXian-Common" />
+        <module name="LeXian-Dao" />
+        <module name="LeXian-Model" />
+        <module name="LeXian-Service" />
+        <module name="LeXian-WebSite" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="LeXian" target="1.8" />
+      <module name="LeXian-Admin" target="1.8" />
+      <module name="LeXian-Common" target="1.8" />
+      <module name="LeXian-Dao" target="1.8" />
+      <module name="LeXian-Model" target="1.8" />
+      <module name="LeXian-Service" target="1.8" />
+      <module name="LeXian-WebSite" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

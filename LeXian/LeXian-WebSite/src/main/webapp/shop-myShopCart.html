@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+
+<head>
+    <title>乐鲜mall商城</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/shop.style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/scrollbar/src/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/plugins/jquery-steps/css/custom-jquery.steps.css">
+
+    <!-- Style Switcher -->
+    <link rel="stylesheet" href="assets/css/plugins/style-switcher.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+</head>
+<body class="header-fixed">
+<div class="wrapper">
+    <!--=== Header v5 ===-->
+    <div class="header-v5 header-static">
+        <!-- Topbar v3 -->
+        <div class="topbar-v3">
+            <div class="search-open">
+                <div class="container">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="search-close"><i class="icon-close"></i></div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Topbar Navigation -->
+                        <!--<ul class="left-topbar">-->
+                        <!--<li>-->
+                        <!--<a>Currency (USD)</a>-->
+                        <!--<ul class="currency">-->
+                        <!--<li class="active">-->
+                        <!--<a href="#">USD <i class="fa fa-check"></i></a>-->
+                        <!--</li>-->
+                        <!--<li><a href="#">Euro</a></li>-->
+                        <!--<li><a href="#">Pound</a></li>-->
+                        <!--</ul>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--<a>Language (EN)</a>-->
+                        <!--<ul class="language">-->
+                        <!--<li class="active">-->
+                        <!--<a href="#">English (EN)<i class="fa fa-check"></i></a>-->
+                        <!--</li>-->
+                        <!--<li><a href="#">Spanish (SPN)</a></li>-->
+                        <!--<li><a href="#">Russian (RUS)</a></li>-->
+                        <!--<li><a href="#">German (GRM)</a></li>-->
+                        <!--</ul>-->
+                        <!--</li>-->
+                        <!--</ul>&lt;!&ndash;/end left-topbar&ndash;&gt;-->
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="list-inline right-topbar pull-right">
+                            <li><a href="#">我的账户</a></li>
+                            <li><a href="shop-myShopCart.html">我的收藏夹 (0)</a></li>
+                            <li><a href="shop-login.html">登录</a> | <a href="shop-ui-register.html">注册</a></li>
+                            <li><i class="search fa fa-search search-button"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--/container-->
+        </div>
+        <!-- End Topbar v3 -->
+
+        <!-- Navbar -->
+        <div class="navbar navbar-default mega-menu" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">-->
+                    <!--<span class="sr-only">Toggle navigation</span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--<span class="icon-bar"></span>-->
+                    <!--</button>-->
+                    <a class="navbar-brand" href="index.html" style="margin-top: 25px">
+                        <!--<img id="logo-header" src="assets/img/logo.png" alt="Logo">-->
+                        乐鲜mall
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <!-- Badge -->
+                    <ul class="list-inline shop-badge badge-lists badge-icons pull-right"
+                        style="font-size: 20px;margin-top: 10px">
+                        <li class="dropdown active">
+                            <a href="index.html" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                首页
+                            </a>
+
+                        </li>
+                        <!-- End Pages -->
+                        <!-- Promotion -->
+                        <li class="dropdown">
+                            <a href="#!" target="_blank">商品分类</a>
+                            <ul id="category" class="badge-open home-category">
+                                <li></li>
+                                <li v-for="item in map.categoryLists">
+                                    <!--shop-category.html?categoryId=item.categoryid-->
+                                    <a v-bind:href="['shop-category.html?categoryId='+item.categoryid+'&categorytitle='+item.categorytitle]"
+                                       target="_blank">{{item.categorytitle}}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="shop-myShopCart.html"><i class="fa fa-shopping-cart"></i></a>
+                            <span class="badge badge-sea rounded-x">3</span>
+                            <ul id="scrollbar" class="list-unstyled badge-open contentHolder">
+                                <li>
+                                    <img src="assets/img/thumb/01.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>Black Glasses</span>
+                                        <small>1 x $400.00</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="assets/img/thumb/02.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>Black Glasses</span>
+                                        <small>1 x $400.00</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="assets/img/thumb/03.jpg" alt="">
+                                    <button type="button" class="close">×</button>
+                                    <div class="overflow-h">
+                                        <span>Black Glasses</span>
+                                        <small>1 x $400.00</small>
+                                    </div>
+                                </li>
+                                <li class="subtotal">
+                                    <div class="overflow-h margin-bottom-10">
+                                        <span>Subtotal</span>
+                                        <span class="pull-right subtotal-cost">$1200.00</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <a href="shop-item.html"
+                                               class="btn-u btn-brd btn-brd-hover btn-u-sea-shop btn-block">View
+                                                Cart</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="shop-myShopCart.html" class="btn-u btn-u-sea-shop btn-block">Checkout</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Badge -->
+
+                    <ul class="nav navbar-nav">
+                        <!--<li>-->
+                        <!--<input type="text" class="form-control" placeholder="Search">-->
+                        <!--</li>-->
+                        <!--&lt;!&ndash; Pages &ndash;&gt;-->
+
+
+                    </ul>
+                </div><!--/navbar-collapse-->
+            </div>
+        </div>
+        <!-- End Navbar -->
+    </div>
+    <!--=== End Header v5 ===-->
+
+    <!--=== Breadcrumbs v4 ===-->
+    <div class="breadcrumbs-v4">
+        <div class="container">
+            <span class="page-name">我的购物车</span>
+            <ul class="breadcrumb-v4-in">
+                <li><a href="/">主页</a></li>
+                <li class="active">我的购物车</li>
+            </ul>
+        </div><!--/end container-->
+    </div>
+    <!--=== End Breadcrumbs v4 ===-->
+
+    <!--=== Content Medium Part ===-->
+    <div class="content-md margin-bottom-30">
+        <div class="container">
+            <form class="shopping-cart" id="shopCartItems" action="#">
+                <div>
+                    <section>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th class="th_checkbox">全选<input type="checkbox"></th>
+                                    <th>商品</th>
+                                    <th>价格</th>
+                                    <th>数量</th>
+                                    <th>小记</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="item in map.shopcartProductions">
+                                    <td>
+                                        <input name="proId" type="checkbox" :value="item.productionId">
+                                    </td>
+                                    <td class="product-in-table">
+                                        <img class="img-responsive" :src="item.proMainPic" :alt="item.proName">
+                                        <div class="product-it-in">
+                                            <h3>{{item.proName}}</h3>
+                                            <span>{{item.proDscp}}</span>
+                                        </div>
+                                    </td>
+                                    <td>￥ {{item.proPrice}}</td>
+                                    <td class="productionAmount">{{item.productionAmount}}</td>
+                                    <td class="shop-red">￥ {{item.proPrice*item.productionAmount}}</td>
+                                    <td>
+                                        <button type="button" class="close"><span>&times;</span><span class="sr-only">Close</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <hr/>
+                    <div class="header-tags">
+                        <div class="overflow-h">
+                            <h2>填写核对个人信息 <a onclick="reloadMyAdrress();">刷新获取</a></h2>
+                            <!--<p>Shipping and address infot</p>-->
+                        </div>
+                    </div>
+                    <!--<section class="billing-info">-->
+
+                    <!--</section>-->
+                    <section class="billing-info">
+                        <div class="table-responsive">
+                            <div style="height: 60px;font-size: 20px;width: 100%">
+                                <!--  <select name="addressId" >
+                                      <option :value="item.addressid" v-on:click="getAddressStr('item.addressid')" v-for="item in map.address">{{item.addressname}}</option>
+                                  </select>-->
+                                <!--<span>{{item.addressstr}}</span>
+                                <span>{{item.addressphone}}</span>
+                                <span>{{item.addressstr}}</span>
+                                <span>{{item.addresspost}}</span>-->
+                                <section>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped" id="addressId">
+                                            <thead>
+                                            <tr>
+                                                <th>选择</th>
+                                                <th>收货人</th>
+                                                <th>电话</th>
+                                                <th>地址</th>
+                                                <th>邮编</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="reloadMyAddressBackUp">
+                                            <tr v-for="item in map.address">
+                                                <td>
+                                                    <input name="addressid" type="radio" :value="item.addressid">
+                                                </td>
+                                                <td>{{item.addressname}}</td>
+                                                <td>{{item.addressphone}}</td>
+                                                <td>{{item.addressstr}}</td>
+                                                <td>{{item.addresspost}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                    <br/>
+                    <hr/>
+                    <div style="width: inherit;height: auto;float: right;top:80px;">
+                        <button style="position: relative;right: 50px;top: 20px;" type="button" id="sureBuy"
+                                onclick="submitMyOrder();" class="btn-u btn-u-sea-shop btn-u-lg">确认下单
+                        </button>
+                    </div>
+
+                    <!-- <div class="header-tags">
+                         <div class="overflow-h">
+                             <h2>支付</h2>
+                         </div>
+                     </div>
+                     <section class="orderok">
+                         <div class="container">
+                             <div class="col-sm-2"></div>
+                             <div class="col-sm-8">
+                                 <div class="ok">
+                                     <h1><span class="glyphicon glyphicon-ok"></span>下单成功</h1>
+                                     <p>您现在可以去：<a href="#">查看订单</a></p>
+                                 </div>
+                             </div>
+                             <div class="col-sm-2"></div>
+                         </div>
+                     </section>-->
+                </div>
+            </form>
+        </div><!--/end container-->
+    </div>
+
+    <div class="footer-v4">
+        <div class="footer-v4">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-4 md-margin-bottom-40">
+                            <a href="index.html" style="font-size: 30px">
+                                <!--<img class="footer-logo" src="assets/img/logo-2.png" alt="">-->
+                                乐鲜mall
+                            </a>
+                            <p>顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶</p>
+                            <br>
+                            <ul class="list-unstyled address-list margin-bottom-20">
+                                <li><i class="fa fa-angle-right"></i>重庆交通大学知园小区</li>
+                                <li><i class="fa fa-angle-right"></i>电话: 800 123 3456</li>
+                                <li><i class="fa fa-angle-right"></i>传真: 800 123 3456</li>
+                                <li><i class="fa fa-angle-right"></i>邮箱: info@anybiz.co</li>
+                            </ul>
+
+                            <ul class="list-inline shop-social">
+                                <li><a href="#"><i class="fb rounded-md fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="tw rounded-md fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="gp rounded-md fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="yt rounded-md fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- End About -->
+
+                        <!-- Simple List -->
+                        <div class="col-md-2 col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">消费者保障</h2>
+                                    <ul class="list-unstyled simple-list margin-bottom-20">
+                                        <li><a href="#">保障范围 </a></li>
+                                        <li><a href="#">退货退款流程</a></li>
+                                        <li><a href="#">服务中心 </a></li>
+                                        <li><a href="#">更多特色服务</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">新手上路</h2>
+                                    <ul class="list-unstyled simple-list">
+                                        <li><a href="#">新手专区</a></li>
+                                        <li><a href="#">消费警示</a></li>
+                                        <li><a href="#">交易安全 </a></li>
+                                        <li><a href="#">24小时在线帮助</a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">付款方式</h2>
+                                    <ul class="list-unstyled simple-list margin-bottom-20">
+                                        <li><a href="#">快捷支付</a></li>
+                                        <li><a href="#">信用卡</a></li>
+                                        <li><a href="#">余额宝 </a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-sm-12 col-xs-6">
+                                    <h2 class="thumb-headline">老谭特色</h2>
+                                    <ul class="list-unstyled simple-list">
+                                        <li><a href="#">大众评审</a></li>
+                                        <li><a href="#">手机淘宝</a></li>
+                                        <li><a href="#">旺旺/旺信 </a></li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-md-2 col-sm-3">-->
+                        <!--<div class="row">-->
+                        <!--<div class="col-sm-12 col-xs-6">-->
+                        <!--<h2 class="thumb-headline">Publicidad</h2>-->
+                        <!--<ul class="list-unstyled simple-list margin-bottom-20">-->
+                        <!--<li><a href="#">Ultima Hora</a></li>-->
+                        <!--<li><a href="#">Exclusiva</a></li>-->
+                        <!--<li><a href="#">Documentos </a></li>-->
+                        <!--<li><a href="#">Francisco papa</a></li>-->
+                        <!--<li>...</li>-->
+                        <!--</ul>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-sm-12 col-xs-6">-->
+                        <!--<h2 class="thumb-headline">Contacto</h2>-->
+                        <!--<ul class="list-unstyled simple-list">-->
+                        <!--<li><a href="#">Ultima Hora</a></li>-->
+                        <!--<li><a href="#">Exclusiva</a></li>-->
+                        <!--<li><a href="#">Documentos </a></li>-->
+                        <!--<li><a href="#">Francisco papa</a></li>-->
+                        <!--<li>...</li>-->
+                        <!--</ul>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-md-2 col-sm-3">-->
+                        <!--<div class="row">-->
+                        <!--<div class="col-sm-12 col-xs-6">-->
+                        <!--<h2 class="thumb-headline">Utilidades</h2>-->
+                        <!--<ul class="list-unstyled simple-list margin-bottom-20">-->
+                        <!--<li><a href="#">Ultima Hora</a></li>-->
+                        <!--<li><a href="#">Exclusiva</a></li>-->
+                        <!--<li>...</li>-->
+                        <!--</ul>-->
+                        <!--</div>-->
+
+                        <!--<div class="col-sm-12 col-xs-6">-->
+                        <!--<h2 class="thumb-headline">Documentos</h2>-->
+                        <!--<ul class="list-unstyled simple-list">-->
+                        <!--<li><a href="#">Ultima Hora</a></li>-->
+                        <!--<li><a href="#">Exclusiva</a></li>-->
+                        <!--<li>...</li>-->
+                        <!--</ul>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!-- End Simple List -->
+            </div><!--/end row-->
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            2014 &copy; Unify. ALL Rights Reserved.
+                            <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a> | <a href="#">Privacy
+                            Policy</a> | <a href="#">Terms of Service</a>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-inline sponsors-icons pull-right">
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!--/copyright-->
+    </div>
+    <!--=== End Footer v4 ===-->
+</div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script src="assets/plugins/back-to-top.js"></script>
+<script src="assets/plugins/sky-forms/version-2.0.1/js/jquery.validate.min.js"></script>
+<script src="assets/plugins/jquery-steps/build/jquery.steps.js"></script>
+<!-- Scrollbar -->
+<script src="assets/plugins/scrollbar/src/jquery.mousewheel.js"></script>
+<script src="assets/plugins/scrollbar/src/perfect-scrollbar.js"></script>
+<!-- JS Customization -->
+<script src="assets/js/custom.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/vue.js"></script>
+<script src="/assets/plugins/layer/layer.js"></script>
+<!-- JS Page Level -->
+<script src="assets/js/shop.app.js"></script>
+<script src="assets/js/forms/page_login.js"></script>
+<script src="assets/js/plugins/stepWizard.js"></script>
+<script src="assets/js/forms/product-quantity.js"></script>
+<script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        App.init();
+        Login.initLogin();
+        StepWizard.initStepWizard();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/html5shiv.js"></script>
+<script src="assets/plugins/sky-forms/version-2.0.1/js/sky-forms-ie8.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src="assets/plugins/sky-forms/version-2.0.1/js/jquery.placeholder.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    function submitMyOrder() {
+        var chk_value = [];
+        $('input[name="proId"]:checked').each(function () {
+            chk_value.push("{'productionId':'" + $(this).val() + "','amount':2}");
+            /*    alert($(this).parent('.productionAmount').val());
+             console.log($(this).parent(".productionAmount").html());*/
+        });
+        if (chk_value.length === 0) {
+            layer.msg("啥子都不选怎么下单~");
+        }
+        var chk_AddressidValue = [];
+        var chk_AddressidValue2;
+        $('input[name="addressid"]:checked').each(function () {
+            chk_AddressidValue.push($(this).val());
+            chk_AddressidValue2 = $(this).val();
+        });
+        if (chk_AddressidValue.length === 0) {
+            layer.msg("你这骚操作是要下单吗？");
+        }
+        // console.log(chk_value);
+        console.log("[" + chk_value.toString() + "]");
+        $.ajax({
+            url: "user/order/add",
+            type: "post",
+            data: {
+                token: $.LeXian.getMyToken(), addressId: chk_AddressidValue2,
+                productionIds: "[" + chk_value.toString() + "]"
+            },
+            success: function (data) {
+              /*  if (data.map.error===null||data.map.error === "" || data.map.error.length > 0) {
+                    layer.confirm("购买失败～，" + data.map.error, {
+                        btn: ['好的','还是好的'] //按钮
+                    }, function(){
+                        layer.msg('不要气馁，好好操作哦～', {icon: 1});
+                    });
+                } else {
+                    layer.confirm("购买成功～，", {
+                        btn: ['好的','还是好的'] //按钮
+                    }, function(){
+                        layer.msg('感谢购买～', {icon: 1});
+                    });
+                    layer.msg("购买成功，订单编号：" + data.map.userOrder.orderid);
+                }*/
+                layer.confirm("购买成功～，", {
+                    btn: ['好的','还是好的'] //按钮
+                }, function(){
+                    layer.msg('感谢购买～', {icon: 1});
+                });
+                //页面层
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['420px', '240px'], //宽高
+                    content: '"恭喜你，购买成功，订单编号"'+data.map.userOrder.orderid+'<br/><a target="_blank" href="shop-oneOrder.html">点击查看订单</a>。感谢你的光临！'
+                });
+                /*layer.msg("购买成功，订单编号：" + data.map.userOrder.orderid);*/
+            }
+        });
+    }
+    $.getJSON("/user/shopcart/query?token=" + $.LeXian.getMyToken(), function (data) {
+        var myShopCarts = new Vue({
+            el: '#shopCartItems',
+            data: data
+        });
+    });
+    $.getJSON("/user/address/queryAll?token=" + $.LeXian.getMyToken(), function (data) {
+        var addressId = new Vue({
+            el: '#addressId',
+            data: data
+        });
+    });
+
+    function reloadMyAdrress() {
+        $.getJSON("/user/address/queryAll?token=" + $.LeXian.getMyToken(), function (data) {
+            $("#reloadMyAddressBackUp").html("");
+            for (var i = 0; i < data.map.address.length; i++) {
+                $("#reloadMyAddressBackUp").append("<tr><td><input name='addressid' type=radio value=" + data.map.address[i].addressid + "></td>" +
+                    "<td>" + data.map.address[i].addressname + "</td><td>" + data.map.address[i].addressphone + "</td>" +
+                    " <td>" + data.map.address[i].addressstr + "</td> <td>" + data.map.address[i].addresspost + "</td> </tr>");
+            }
+
+        });
+    }
+</script>
+</body>
+</html> 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.ProductionStatusMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.ProductionStatus">
+    <id column="production_status_id" jdbcType="INTEGER" property="productionStatusId" />
+    <result column="production_status_desc" jdbcType="VARCHAR" property="productionStatusDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    production_status_id, production_status_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from productionStatus
+    where production_status_id = #{productionStatusId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from productionStatus
+    where production_status_id = #{productionStatusId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.ProductionStatus">
+    insert into productionStatus (production_status_id, production_status_desc
+      )
+    values (#{productionStatusId,jdbcType=INTEGER}, #{productionStatusDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.ProductionStatus">
+    insert into productionStatus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionStatusId != null">
+        production_status_id,
+      </if>
+      <if test="productionStatusDesc != null">
+        production_status_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionStatusId != null">
+        #{productionStatusId,jdbcType=INTEGER},
+      </if>
+      <if test="productionStatusDesc != null">
+        #{productionStatusDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.ProductionStatus">
+    update productionStatus
+    <set>
+      <if test="productionStatusDesc != null">
+        production_status_desc = #{productionStatusDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where production_status_id = #{productionStatusId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.ProductionStatus">
+    update productionStatus
+    set production_status_desc = #{productionStatusDesc,jdbcType=VARCHAR}
+    where production_status_id = #{productionStatusId,jdbcType=INTEGER}
+  </update>
+</mapper>

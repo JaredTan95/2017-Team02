@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.FavoriteMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.Favorite">
+    <id column="proId" jdbcType="VARCHAR" property="proid" />
+    <id column="userId" jdbcType="VARCHAR" property="userid" />
+    <id column="favoriteId" jdbcType="VARCHAR" property="favoriteid" />
+    <result column="favoriteDate" jdbcType="DATE" property="favoritedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    proId, userId, favoriteId, favoriteDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.cqjtu.lexian.model.FavoriteKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from favorite
+    where proId = #{proid,jdbcType=VARCHAR}
+      and userId = #{userid,jdbcType=VARCHAR}
+      and favoriteId = #{favoriteid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.cqjtu.lexian.model.FavoriteKey">
+    delete from favorite
+    where proId = #{proid,jdbcType=VARCHAR}
+      and userId = #{userid,jdbcType=VARCHAR}
+      and favoriteId = #{favoriteid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.cqjtu.lexian.model.Favorite">
+    insert into favorite (proId, userId, favoriteId, 
+      favoriteDate)
+    values (#{proid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{favoriteid,jdbcType=VARCHAR}, 
+      #{favoritedate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.cqjtu.lexian.model.Favorite">
+    insert into favorite
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="proid != null">
+        proId,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="favoriteid != null">
+        favoriteId,
+      </if>
+      <if test="favoritedate != null">
+        favoriteDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="proid != null">
+        #{proid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="favoriteid != null">
+        #{favoriteid,jdbcType=VARCHAR},
+      </if>
+      <if test="favoritedate != null">
+        #{favoritedate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.cqjtu.lexian.model.Favorite">
+    update favorite
+    <set>
+      <if test="favoritedate != null">
+        favoriteDate = #{favoritedate,jdbcType=DATE},
+      </if>
+    </set>
+    where proId = #{proid,jdbcType=VARCHAR}
+      and userId = #{userid,jdbcType=VARCHAR}
+      and favoriteId = #{favoriteid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.cqjtu.lexian.model.Favorite">
+    update favorite
+    set favoriteDate = #{favoritedate,jdbcType=DATE}
+    where proId = #{proid,jdbcType=VARCHAR}
+      and userId = #{userid,jdbcType=VARCHAR}
+      and favoriteId = #{favoriteid,jdbcType=VARCHAR}
+  </update>
+</mapper>

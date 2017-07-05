@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cqjtu.lexian.dao.ShopcartProductionExpandMapper">
+  <resultMap id="BaseResultMap" type="cn.cqjtu.lexian.model.ShopcartProduction">
+    <id column="sp_id" jdbcType="VARCHAR" property="spId" />
+    <result column="shopcartId" jdbcType="VARCHAR" property="shopcartid" />
+    <result column="production_amount" jdbcType="INTEGER" property="productionAmount" />
+    <result column="production_id" jdbcType="VARCHAR" property="productionId" />
+  </resultMap>
+
+
+
+
+
+
+  <select id="findByProductionIdandShopcartId" parameterType="cn.cqjtu.lexian.model.ShopcartProduction" resultType="cn.cqjtu.lexian.model.ShopcartProduction">
+    SELECT sp_id,shopcartId,production_amount,production_id FROM shopcart_production WHERE
+     production_id=#{productionId} AND  shopcartId=#{shopcartid}
+  </select>
+
+
+  <update id="updateByShopcartIdandProductionId" parameterType="cn.cqjtu.lexian.model.ShopcartProduction">
+    UPDATE shopcart_production SET production_amount=#{productionAmount} WHERE shopcartId=#{shopcartid}
+     and production_id=#{productionId}
+  </update>
+
+
+  <select id="queryAll" parameterType="java.lang.String" resultType="cn.cqjtu.lexian.model.ShopcartProductionShow">
+    SELECT sp_id,shopcartId,production_amount,production_id,proBar,proPrice,proName,proDscp,proMainPic FROM shopcart_production LEFT JOIN production ON production_id=proId WHERE  shopcartId=#{userId}
+  </select>
+
+
+  <delete id="deleteShopcartproduction" parameterType="cn.cqjtu.lexian.model.ShopcartProduction">
+    DELETE FROM shopcart_production WHERE shopcartId=#{shopcartid} AND
+     production_id=#{productionId}
+  </delete>
+
+
+</mapper>
