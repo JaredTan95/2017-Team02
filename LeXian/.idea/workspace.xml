@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="58e9ed98-f0ad-403a-9719-57857db52448" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Admin/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Admin/src/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Admin/src/main/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Admin/src/main/webapp/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Admin/src/main/webapp/WEB-INF/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Model/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Service/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-Service/src/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-WebSite/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-WebSite/src/._.DS_Store" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LeXian-WebSite/src/main/._.DS_Store" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeXian-Admin/LeXian-Admin.iml" afterPath="$PROJECT_DIR$/LeXian-Admin/LeXian-Admin.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeXian-Dao/LeXian-Dao.iml" afterPath="$PROJECT_DIR$/LeXian-Dao/LeXian-Dao.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LeXian-WebSite/LeXian-WebSite.iml" afterPath="$PROJECT_DIR$/LeXian-WebSite/LeXian-WebSite.iml" />
-    </list>
+    <list default="true" readonly="true" id="58e9ed98-f0ad-403a-9719-57857db52448" name="Default" comment="。" />
     <list id="72729134-6189-4e7f-a0a5-00c1edb4b906" name="Failed commit: Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -101,7 +84,21 @@
     <favorites_list name="LeXian" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="175" />
+    <leaf>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="180">
+                <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -175,7 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LeXian-Model/src/main/java/cn/cqjtu/lexian/model/OrderShow.java" />
         <option value="$PROJECT_DIR$/LeXian-Admin/src/test/cn/cqjtu/lexian/dao/OrderShowTest/OrderShow.java" />
         <option value="$PROJECT_DIR$/LeXian-Dao/src/main/java/cn/cqjtu/lexian/dao/OrderExpandMapper.java" />
         <option value="$PROJECT_DIR$/LeXian-Admin/src/main/resources/mybatis-config.xml" />
@@ -226,6 +222,7 @@
         <option value="$PROJECT_DIR$/LeXian-WebSite/src/main/webapp/js/app.js" />
         <option value="$PROJECT_DIR$/LeXian-WebSite/src/main/webapp/orderDetail.html" />
         <option value="$PROJECT_DIR$/LeXian-WebSite/src/main/webapp/shop-oneOrder.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -328,8 +325,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -442,6 +437,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1171,52 +1168,6 @@
     <supportedVersion>125</supportedVersion>
     <option name="UPDATE_DEPTH" value="files" />
   </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/.idea" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/.idea" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/LeXian-Admin" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/LeXian-Admin" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/LeXian-Common" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/LeXian-Common" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/LeXian-Dao" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/LeXian-Dao" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/LeXian-Model" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/LeXian-Model" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/LeXian-Service" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/LeXian-Service" />
-        </SvnCopyRootSimple>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$/LeXian-WebSite" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$/LeXian-WebSite" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="$PROJECT_DIR$" />
-          <option name="myCopyRoot" value="$PROJECT_DIR$" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="58e9ed98-f0ad-403a-9719-57857db52448" name="Default" comment="" />
@@ -1253,6 +1204,7 @@
       <workItem from="1499194971305" duration="7492000" />
       <workItem from="1499237984574" duration="160000" />
       <workItem from="1499256983024" duration="420000" />
+      <workItem from="1499353656848" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="更新结构">
       <created>1498649307030</created>
@@ -1493,7 +1445,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211430000" />
+    <option name="totallyTimeSpent" value="212036000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1506,9 +1458,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41369864" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43835616" sideWeight="0.4062947" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19726028" sideWeight="0.62277865" order="10" side_tool="true" content_ui="tabs" />
@@ -1519,7 +1471,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60273975" sideWeight="0.49676898" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2253635" sideWeight="0.49452055" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22859451" sideWeight="0.49452055" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1538,6 +1490,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43835616" sideWeight="0.4062947" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1605,70 +1558,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.category">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="categoryId='51e1173d7401463ca5e2a2306626ab5a'" />
-          </filtering>
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.orderDetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.production">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="proId='1001'">
-            <filter text="proId='1001'" />
-            <filter text="proId='0f55a158231249588c9d68999e992133'" />
-            <filter text="proId='14144d98bfcc42c4889f87986dd5c867'" />
-            <filter text="proId='02feea2f932e49359f7c2e14b77cf954'" />
-            <filter text="proId='280edb3e27ad4c4b9ce7120c35dcb0ef'" />
-            <filter text="proId='27b7e62fd075403bae21e52806e91a46'" />
-            <filter text="proId='09977b8fed22409ba8f1ddfd4f541a3c'" />
-            <filter text="proId='398ac2eae87b474a9cd24d39d7c6d7c9'" />
-            <filter text="proId='3531bd67c0d74fcfacfdfeb4b89df4a2'" />
-            <filter text="proId='33dfb17a5af8472a9f55b59b5a3a312e'" />
-          </filtering>
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.pro2cate">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="pro">
-            <filter text="categoryid='66671f82bb5145158a179912e38f2ef3'" />
-            <filter text="categoryid='bb56ce190189427faf2e05becab75922'" />
-          </filtering>
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.category" />
+    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.orderDetail" />
+    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.production" />
+    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.pro2cate" />
     <entry file="file://$PROJECT_DIR$/LeXian-WebSite/src/main/webapp/assets/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="978">
@@ -1874,16 +1767,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LeXian-WebSite/src/main/webapp/orderDetail.html" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LeXian-WebSite/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1915,24 +1798,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/54a61306/ec21c921-37fa-49f1-aea0-27b445701978/LeXianDb.user" />
     <entry file="file://$PROJECT_DIR$/LeXian-Service/src/main/java/cn/cqjtu/lexian/service/order/Impl/OrderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="213" column="5" lean-forward="false" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1940,9 +1810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1950,7 +1817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="334" column="27" lean-forward="false" selection-start-line="334" selection-start-column="27" selection-end-line="334" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1978,6 +1844,17 @@
             <element signature="docComment;method#getInfo#0;class#UserController#0" expanded="false" />
             <element signature="method#getInfo#0;class#UserController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="180">
+            <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
