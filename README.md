@@ -1,4 +1,4 @@
-#乐鲜在线商城模块说明：
+# 乐鲜在线商城模块说明：
 * LeXian-Common : 公共模块，一些公共组件，工具类都放到这个模块中.
 * LeXian-Dao : 数据库交互模块，Mybatis的mapper.xml文件及Dao层的接口就写到这里.
 * LeXian-Model : 对象模块，所有的实体对象都放到这里 .
